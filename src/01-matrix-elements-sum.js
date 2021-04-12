@@ -6,16 +6,29 @@
  * @return {Number}
  *
  * @example
- * matrix = [
- *  [0, 1, 1, 2],
- *  [0, 5, 0, 0],
- *  [2, 0, 3, 3]
- * ]
  *
  * The result should be 9
  */
-function getMatrixElementsSum(/* matrix */) {
-  throw new Error('Not implemented');
+//  matrix = [
+//   [1, 2, 3, 4],
+//       [0, 5, 0, 0],
+//       [2, 0, 3, 3],
+// ]
+function getMatrixElementsSum(matrix) {
+  const newMatrix = matrix;
+  let sum = 0;
+  for (let i = 0; i < newMatrix.length; i++) {
+    for (let j = 0; j < newMatrix[i].length; j++) {
+      if (newMatrix[i][j] === 0) {
+        if (i < newMatrix.length - 1) {
+          newMatrix[i + 1][j] = 0;
+        }
+      }
+      sum += newMatrix[i][j];
+    }
+  }
+  // console.log(sum);
+  return sum;
 }
-
+// getMatrixElementsSum(matrix);
 module.exports = getMatrixElementsSum;
